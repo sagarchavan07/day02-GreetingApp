@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,5 +25,10 @@ public class GreetingController {
     @GetMapping("/greeting")
     public Optional<Greeting> findGreeting(@RequestParam long id){
         return greetingService.findGreeting(id);
+    }
+
+    @GetMapping("/greeting/all")
+    public List<Greeting> getAllGreeting(){
+        return greetingService.getAllGreetings();
     }
 }
