@@ -28,4 +28,9 @@ public class GreetingService {
     public List<Greeting> getAllGreetings(){
         return greetingRepository.findAll();
     }
+
+    public Greeting editGreeting(Long id, Greeting greeting){
+        greeting.setId(id);
+        return greetingRepository.save(greeting);
+    }
 }
