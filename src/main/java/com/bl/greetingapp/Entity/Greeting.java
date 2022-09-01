@@ -1,7 +1,5 @@
 package com.bl.greetingapp.Entity;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 
 @Entity
