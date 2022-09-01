@@ -3,10 +3,7 @@ package com.bl.greetingapp.Controller;
 import com.bl.greetingapp.Entity.Greeting;
 import com.bl.greetingapp.Service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,5 +27,10 @@ public class GreetingController {
     @GetMapping("/greeting/all")
     public List<Greeting> getAllGreeting(){
         return greetingService.getAllGreetings();
+    }
+
+    @PutMapping("/greeting/put/{id}")
+    public Greeting editGreeting(@RequestBody Greeting greeting, @PathVariable Long id){
+        return greetingService.editGreeting(id, greeting);
     }
 }
