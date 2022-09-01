@@ -21,6 +21,10 @@ public class GreetingService {
         greetingRepository.save(greeting);
     }
 
+    public Greeting createGreeting(Greeting greeting){
+        return greetingRepository.save(greeting);
+    }
+
     public Optional<Greeting> findGreeting(long id){
         return greetingRepository.findById(id);
     }
@@ -32,5 +36,9 @@ public class GreetingService {
     public Greeting editGreeting(Long id, Greeting greeting){
         greeting.setId(id);
         return greetingRepository.save(greeting);
+    }
+
+    public void deleteGreeting(Long id){
+        greetingRepository.deleteById(id);
     }
 }
