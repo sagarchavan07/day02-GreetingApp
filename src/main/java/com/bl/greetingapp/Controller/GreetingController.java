@@ -13,10 +13,9 @@ public class GreetingController {
 
     @Autowired
     GreetingService greetingService;
-    @PostMapping("/greeting/post")
-    public String greeting(@RequestParam String name){
-        greetingService.saveGreeting(name);
-        return "Success";
+    @PostMapping("/greeting/add")
+    public Greeting greeting(@RequestParam String firstName, String lastName){
+        return greetingService.saveGreeting(firstName,lastName);
     }
 
     @PostMapping("/greeting/post")
