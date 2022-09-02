@@ -11,14 +11,14 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class GreetingService {
-    public static final String template = "hello %s!";
+    public static final String template = "hello %s %s!";
     public static final AtomicLong id = new AtomicLong();
 
     @Autowired
     IGreetingRepository greetingRepository;
-    public void saveGreeting(String name){
-        Greeting greeting= new Greeting(id.incrementAndGet(), String.format(template,name));
-        greetingRepository.save(greeting);
+    public Greeting saveGreeting(String firstName, String lastName){
+        Greeting greeting= new Greeting(id.incrementAndGet(), String.format(template,firstName,lastName));
+        return greetingRepository.save(greeting);
     }
 
     public Greeting createGreeting(Greeting greeting){
